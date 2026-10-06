@@ -7,71 +7,145 @@
 <title>MestriCentring — Centring Cost Calculator & Contractor Network, Hyderabad</title>
 <meta name="description" content="Free centring and steel cost calculator for Hyderabad. Find verified centring mestris, hire shuttering suppliers, and post projects to get quotes.">
 <link rel="canonical" href="https://nbraju.github.io/MestriCentring/">
+<meta name="theme-color" content="#16222d">
+<meta property="og:title" content="MestriCentring — Centring Cost Calculator, Hyderabad">
+<meta property="og:description" content="Free centring and steel cost estimate. Find verified mestris and shuttering suppliers.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23e8590c'/%3E%3Cg fill='%23fff'%3E%3Ccircle cx='9' cy='9' r='2.4'/%3E%3Ccircle cx='16' cy='9' r='2.4'/%3E%3Ccircle cx='23' cy='9' r='2.4'/%3E%3Ccircle cx='9' cy='16' r='2.4'/%3E%3Ccircle cx='16' cy='16' r='2.4'/%3E%3Ccircle cx='23' cy='16' r='2.4'/%3E%3Crect x='6' y='23' width='20' height='3' rx='1.5'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--o:#f97316;--od:#c2410c;--ink:#0f172a;--mut:#64748b;--bg:#f4f7fc;--line:#e2e8f0;--soft:#fef9f4}
+:root{--ink:#16222d;--mut:#5b6872;--bg:#eceee9;--pap:#fbfbf9;--line:#d9ddd6;--o:#e8590c;--od:#b8430a;--ok:#0f766e;--c0:#e8590c;--c1:#d99a00;--c2:#0f766e;--c3:#4b78c0;--c4:#8a96a3;--hd:'Bricolage Grotesque',system-ui,sans-serif;--sh:0 1px 2px rgba(22,34,45,.06),0 10px 26px -14px rgba(22,34,45,.22)}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,'Segoe UI',Roboto,sans-serif}
-header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);box-shadow:0 4px 16px rgba(0,0,0,.05)}
-.hd{max-width:1180px;margin:auto;padding:10px 16px;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-.logo{font-weight:800;font-size:1.05rem}.logo small{display:block;font-weight:600;font-size:.65rem;color:#b45309}
-nav{display:flex;gap:6px;overflow-x:auto;max-width:100%}
-nav button,.tabs button{border:1px solid var(--line);background:#fff;padding:8px 14px;border-radius:99px;font:600 .85rem inherit;cursor:pointer;white-space:nowrap}
-nav button.on,.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
-main{max-width:1180px;margin:auto;padding:20px 16px 60px}
+html{scroll-padding-top:84px}
+body{background:var(--bg);color:var(--ink);font:16px/1.5 Figtree,system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;-webkit-font-smoothing:antialiased;padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+:focus-visible{outline:2.5px solid var(--o);outline-offset:2px}
+.ic{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+header{position:sticky;top:0;z-index:50;background:rgba(251,251,249,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top)}
+.hd{max-width:1200px;margin:auto;padding:10px 20px;display:flex;align-items:center;gap:14px}
+.logo{display:flex;align-items:center;gap:10px;font:800 1.15rem var(--hd);letter-spacing:-.01em;margin-right:auto}
+.mark{width:36px;height:36px;border-radius:10px;background:var(--o);display:grid;place-items:center;color:#fff}
+.pill{font:600 .72rem Figtree,sans-serif;padding:4px 10px;border-radius:99px;background:#fdeee3;color:var(--od);display:inline-flex;gap:6px;align-items:center;white-space:nowrap}
+.pill::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.pill.live{background:#dcf3ef;color:var(--ok)}
+nav button{display:flex;gap:7px;align-items:center;border:0;background:none;color:#3b4852;padding:9px 14px;border-radius:99px;font:600 .9rem Figtree,sans-serif;cursor:pointer;white-space:nowrap;transition:background .15s}
+nav button:hover{background:#e9ece6}
+nav button.on{background:var(--ink);color:#fff}
+#nav{display:flex;gap:2px}
+.callbtn{display:inline-flex;gap:8px;align-items:center;background:var(--o);color:#fff;text-decoration:none;font:700 .88rem Figtree,sans-serif;padding:9px 16px;border-radius:99px}
+#bar{display:none}
+main{max-width:1200px;margin:auto;padding:26px 20px 40px}
 .page,.panel{display:none}.page.on,.panel.on{display:block}
-h1{font-size:clamp(1.5rem,4vw,2.2rem);line-height:1.15}h1 span{color:var(--od)}h2{font-size:1.35rem;margin-bottom:6px}h3{font-size:1rem;margin:14px 0 8px}
-.sub{color:var(--mut);margin:6px 0 16px}.mut{color:var(--mut);font-size:.85rem}
-.box{background:#fff;border-radius:20px;padding:20px;box-shadow:0 6px 24px rgba(15,23,42,.05);margin-bottom:18px}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}@media(max-width:820px){.grid2{grid-template-columns:1fr}}
-.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
-.f{margin-bottom:10px}.f label{display:block;font-size:.78rem;font-weight:600;margin-bottom:3px;color:#334155}
-input,select,textarea{width:100%;padding:11px 12px;border:1px solid #cbd5e1;border-radius:12px;font:inherit;background:#fff}
-input:focus,select:focus,textarea:focus{outline:2px solid var(--o);border-color:var(--o)}
-.hp{position:absolute;left:-9999px;width:1px;height:1px}
-.btn{background:var(--o);color:#fff;border:0;padding:12px 18px;border-radius:12px;font:700 .95rem inherit;cursor:pointer;width:100%;margin-top:4px}
-.btn:disabled{opacity:.6}.btn.dark{background:var(--ink)}.btn.ghost{background:#fff;color:var(--ink);border:1px solid #cbd5e1}
-.btns{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-top:8px}
-.msg{margin-top:10px;font-size:.88rem;border-radius:10px}.msg.ok{background:#dcfce7;color:#14532d;padding:10px}.msg.bad{background:#fee2e2;color:#7f1d1d;padding:10px}
-.tabs{display:flex;gap:6px;overflow-x:auto;margin:14px 0}
-.dir{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;margin-top:12px}
-.card{background:var(--soft);border:1px solid #f0e4d8;border-radius:18px;padding:16px}
-.card h4{font-size:1rem;display:flex;justify-content:space-between;gap:8px}
-.badge{font-size:.62rem;background:#dcfce7;color:#15803d;padding:2px 8px;border-radius:99px;font-weight:700;height:fit-content}.badge.CLOSED{background:#e2e8f0;color:#475569}
-.meta{font-size:.84rem;color:#475569;margin:6px 0}
-.acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
-.b{border:0;border-radius:99px;padding:7px 14px;font:600 .8rem inherit;text-decoration:none;cursor:pointer;background:var(--ink);color:#fff}
-.b.call{background:#2563eb}.b.wa{background:#16a34a}.b.q{background:var(--o)}
-.empty,.note{padding:16px;border-radius:14px;background:#f1f5f9;color:#475569;text-align:center;font-size:.9rem;grid-column:1/-1}
-.inv{display:none;margin-top:8px;font-size:.82rem}.inv td{padding:3px 6px 3px 0}
-.qrow{border-top:1px dashed #e7d5c4;padding:8px 0;font-size:.86rem}
-.cat{background:#f1f5f9;border-radius:12px;padding:8px 12px;margin:12px 0 4px;font-weight:700;font-size:.78rem}
-.it{display:grid;grid-template-columns:3fr 2fr 1.2fr 1.4fr;gap:6px;padding:6px 4px;border-bottom:1px solid #f1f5f9;font-size:.82rem}
-.it>:nth-child(n+2){text-align:right}
-.sum{display:flex;justify-content:space-between;font-weight:700;font-size:.85rem;padding:6px 4px}
-.grand{font-size:2.2rem;font-weight:800;color:var(--od)}
-.hero{margin-bottom:18px}.net{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
-.net .card{text-align:left}.net p{font-size:.85rem;color:#475569;margin:4px 0 10px}
-footer{text-align:center;color:var(--mut);font-size:.8rem;padding:24px}
-#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:11px 20px;border-radius:99px;font-size:.85rem;opacity:0;transition:opacity .25s;pointer-events:none;z-index:99}
+.page.on{animation:in .25s ease-out}@keyframes in{from{opacity:0;transform:translateY(6px)}}
+h1{font:800 clamp(2rem,5.4vw,3.2rem)/1.04 var(--hd);letter-spacing:-.025em;max-width:17ch}
+h2{font:800 clamp(1.5rem,3.6vw,2rem)/1.1 var(--hd);letter-spacing:-.02em;margin-bottom:6px}
+h3{font:700 1.02rem var(--hd);margin:20px 0 10px}
+.sub{color:var(--mut);margin:8px 0 20px;max-width:60ch}.mut{color:var(--mut);font-size:.85rem}
+.hero{margin-bottom:22px}
+.box{background:var(--pap);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--sh);margin-bottom:18px}
+.boxh{display:flex;justify-content:space-between;align-items:center;gap:10px}.boxh h3{margin:0}
+.calc{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:20px;align-items:start}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:2px 12px}
+.f{margin-bottom:12px}.f label{display:block;font:600 .8rem Figtree,sans-serif;margin-bottom:5px;color:#3b4852}
+input,select,textarea{width:100%;min-height:48px;padding:11px 13px;border:1.5px solid #c9cfc6;border-radius:10px;font:inherit;background:#fff;color:var(--ink)}
+input:focus,select:focus,textarea:focus{outline:0;border-color:var(--o);box-shadow:0 0 0 3px rgba(232,89,12,.2)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;min-height:0}
+form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 14px}
+form>.btn,form>.msg,form>.f:has(textarea){grid-column:1/-1}
+.btn{min-height:48px;background:var(--o);color:#fff;border:0;padding:0 18px;border-radius:10px;font:700 .95rem Figtree,sans-serif;cursor:pointer;width:100%;margin-top:6px;transition:background .15s,transform .1s}
+.btn:hover{background:var(--od)}.btn:active{transform:scale(.98)}.btn:disabled{opacity:.6}
+.btn.dark{background:var(--ink)}.btn.dark:hover{background:#26384a}.btn.wa{background:#15803d}.btn.wa:hover{background:#116a33}
+.btn.ghost{background:#fff;color:var(--ink);border:1.5px solid #c9cfc6}
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.msg{margin-top:10px;font-size:.88rem;border-radius:10px}.msg.ok{background:#dcf3ef;color:#0b4f49;padding:11px 13px}.msg.bad{background:#fde4e0;color:#8a1c12;padding:11px 13px}
+.tabs{display:flex;gap:4px;overflow-x:auto;margin:16px 0;padding:4px;background:#dfe3dc;border-radius:12px;width:fit-content;max-width:100%;scrollbar-width:none}
+.tabs button{border:0;background:none;padding:10px 16px;border-radius:9px;font:600 .88rem Figtree,sans-serif;color:#46535d;cursor:pointer;white-space:nowrap}
+.tabs button.on{background:var(--pap);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.14)}
+.dir{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:14px;margin-top:14px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px}
+.card h4{font:700 1.02rem var(--hd);display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.who{display:flex;gap:12px;align-items:center}
+.av{width:44px;height:44px;border-radius:12px;background:var(--ink);color:#fff;display:grid;place-items:center;font:700 .95rem var(--hd);flex:none}
+.stars{color:#d99a00;font-size:.85rem;letter-spacing:1px}
+.badge{font:700 .68rem Figtree,sans-serif;background:#dcf3ef;color:var(--ok);padding:3px 9px;border-radius:99px;margin-left:auto;white-space:nowrap}.badge.CLOSED{background:#e3e8e2;color:#46535d}
+.chips{display:flex;gap:6px;flex-wrap:wrap}.chips span{font-size:.78rem;background:#eef1ec;padding:3px 10px;border-radius:99px}
+.meta{font-size:.86rem;color:#46535d}
+.acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:6px}
+.b{min-height:38px;display:inline-flex;align-items:center;border:0;border-radius:99px;padding:0 16px;font:700 .82rem Figtree,sans-serif;text-decoration:none;cursor:pointer;background:var(--ink);color:#fff}
+.b.call{background:#2b4c7e}.b.wa{background:#15803d}.b.q{background:var(--o)}.b.ghost{background:none;color:var(--ink);border:1.5px solid #c9cfc6}
+.empty,.note{padding:20px;border-radius:12px;background:#eef1ec;color:var(--mut);text-align:center;font-size:.92rem;grid-column:1/-1}
+.sk{min-height:150px;border:0;background:linear-gradient(100deg,#e6e9e3 40%,#f3f5f0 50%,#e6e9e3 60%) 0 0/200% 100%;animation:sk 1.2s linear infinite}@keyframes sk{to{background-position:-200% 0}}
+table{width:100%;border-collapse:collapse;font-size:.9rem}th{font:600 .78rem Figtree,sans-serif;color:var(--mut);text-align:left;padding:6px 8px}td{padding:10px 8px;border-top:1px solid var(--line)}
+.dm{font:700 .72rem Figtree,sans-serif;padding:3px 10px;border-radius:99px}.dm.hi{background:#fde4d3;color:var(--od)}.dm.md{background:#fbefc7;color:#8a5a00}.dm.lo{background:#e3e8e2;color:#46535d}
+.inv{display:none;margin-top:4px;font-size:.82rem;border-top:1px dashed var(--line);padding-top:8px}.inv td{padding:4px 8px 4px 0;border:0}
+.qrow{border-top:1px dashed var(--line);padding:10px 0;font-size:.88rem}
+.net{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+.net p{font-size:.88rem;color:var(--mut)}
+.ibox{width:42px;height:42px;border-radius:12px;background:#fdeee3;color:var(--od);display:grid;place-items:center}
+.slip{border-radius:16px;box-shadow:var(--sh);margin-bottom:18px;position:sticky;top:84px}
+.slip .top{background:var(--ink) radial-gradient(rgba(255,255,255,.08) 1.6px,transparent 1.7px) 0 0/14px 14px;color:#fff;padding:22px 22px 26px;border-radius:16px 16px 0 0;position:relative}
+.slip .top::after{content:"";position:absolute;left:0;right:0;bottom:-8px;height:16px;background:radial-gradient(circle at 9px 8px,var(--bg) 5px,transparent 5.5px) 0 0/18px 16px repeat-x}
+.slip .bd{background:var(--pap);border:1px solid var(--line);border-top:0;border-radius:0 0 16px 16px;padding:26px 18px 18px}
+.lbl,#persq{color:#aab6bf;font-size:.86rem}
+.grand{font:800 clamp(2.5rem,8vw,3.3rem)/1.05 var(--hd);letter-spacing:-.03em;font-variant-numeric:tabular-nums;margin:4px 0}
+.split{display:flex;gap:3px;height:10px;margin-top:16px;border-radius:99px;overflow:hidden}.split i{border-radius:3px;min-width:4px;transition:flex .3s}
+.legend{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px 16px;margin-top:12px;font-size:.78rem;color:#cdd6dc}
+.legend li{display:flex;align-items:center;gap:6px}.legend i{width:8px;height:8px;border-radius:2px;flex:none}.legend b{margin-left:auto;color:#fff;font-weight:600}
+#items{max-height:380px;overflow:auto;margin-bottom:14px}
+.grp{border-bottom:1px solid var(--line)}
+.grp summary{list-style:none;display:flex;align-items:center;gap:10px;cursor:pointer;padding:12px 0;font:700 .9rem var(--hd)}
+.grp summary::-webkit-details-marker{display:none}.grp summary span{flex:1}.grp summary b{font-variant-numeric:tabular-nums}
+.grp summary span::before{content:"";display:inline-block;width:9px;height:9px;border-radius:3px;background:var(--c);margin-right:8px}
+.grp summary::after{content:"";width:7px;height:7px;border:solid var(--mut);border-width:0 2px 2px 0;transform:rotate(45deg);transition:transform .2s}
+.grp[open] summary::after{transform:rotate(-135deg)}
+.it{display:grid;grid-template-columns:1fr auto;padding:6px 0 6px 17px;font-size:.84rem}
+.it .q{grid-column:1;color:var(--mut);font-size:.78rem}.it .t{grid-column:2;grid-row:1/3;align-self:center;font-weight:700;font-variant-numeric:tabular-nums}
+#mini{display:none}
+footer{text-align:center;color:var(--mut);font-size:.82rem;padding:8px 20px 28px}
+#toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:12px 22px;border-radius:99px;font-size:.88rem;opacity:0;transition:opacity .25s;pointer-events:none;z-index:99}
+@media(max-width:900px){.calc{grid-template-columns:1fr}.slip{position:static}}
+@media(max-width:820px){
+ body{font-size:15.5px}.hd{padding:9px 14px}.callbtn span,.logo small{display:none}.callbtn{padding:10px}main{padding:18px 14px 30px}.box{padding:16px}
+ .grid2,form{grid-template-columns:1fr}.legend{grid-template-columns:1fr}
+ #nav{display:none}
+ #bar{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(251,251,249,.95);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:6px 8px calc(6px + env(safe-area-inset-bottom))}
+ #bar button{flex-direction:column;gap:2px;font-size:.68rem;padding:7px 0;border-radius:12px;color:var(--mut)}
+ #bar button.on{background:#fdeee3;color:var(--od)}
+ body[data-page=home]:not(.slipin) #mini{display:flex;position:fixed;left:12px;right:12px;bottom:calc(76px + env(safe-area-inset-bottom));z-index:55;justify-content:space-between;align-items:center;background:var(--ink);color:#fff;border:0;border-radius:14px;padding:12px 16px;font:600 .85rem Figtree,sans-serif;box-shadow:0 12px 30px -8px rgba(0,0,0,.5);cursor:pointer}
+ #mini b{font:800 1.2rem var(--hd)}
+ #toast{bottom:calc(96px + env(safe-area-inset-bottom))}
+}
+@media(min-width:821px){body{padding-bottom:0}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11l9-8 9 8M5 10v10h14V10M10 20v-6h4v6"/></symbol>
+<symbol id="i-hat" viewBox="0 0 24 24"><path d="M4 16a8 8 0 0116 0M2 16h20v3H2zM12 4v5"/></symbol>
+<symbol id="i-box" viewBox="0 0 24 24"><path d="M3 7l9-4 9 4v10l-9 4-9-4zM3 7l9 4 9-4M12 11v10"/></symbol>
+<symbol id="i-build" viewBox="0 0 24 24"><path d="M5 21V4h9v17M14 9h5v12M3 21h18M8 8h3M8 12h3M8 16h3"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A15 15 0 013 6a2 2 0 012-2z"/></symbol>
+<symbol id="i-list" viewBox="0 0 24 24"><path d="M9 4h6v3H9zM7 5H5v16h14V5h-2M9 12h6M9 16h4"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+</defs></svg>
 <header><div class="hd">
-  <div class="logo">🧮 MESTRI CENTRING<small id="pill">○ Offline rates</small></div>
-  <nav id="nav">
-    <button data-p="home">🏠 Home</button><button data-p="mestri">👷 Mestris</button><button data-p="supplier">📦 Suppliers</button>
-    <button data-p="builders">🏗️ Builders</button><button data-p="contact">📞 Contact</button>
-  </nav>
+  <div class="logo"><span class="mark"><svg class="ic" viewBox="0 0 24 24" style="fill:currentColor;stroke:none"><circle cx="6" cy="6" r="1.8"/><circle cx="12" cy="6" r="1.8"/><circle cx="18" cy="6" r="1.8"/><circle cx="6" cy="12" r="1.8"/><circle cx="12" cy="12" r="1.8"/><circle cx="18" cy="12" r="1.8"/><rect x="4" y="17" width="16" height="2.6" rx="1.3"/></svg></span>MestriCentring</div>
+  <span class="pill" id="pill">Offline rates</span>
+  <nav id="nav"><button data-p="home"><svg class="ic"><use href="#i-home"/></svg>Home</button><button data-p="mestri"><svg class="ic"><use href="#i-hat"/></svg>Mestris</button><button data-p="supplier"><svg class="ic"><use href="#i-box"/></svg>Suppliers</button><button data-p="builders"><svg class="ic"><use href="#i-build"/></svg>Builders</button><button data-p="contact"><svg class="ic"><use href="#i-phone"/></svg>Contact</button></nav>
+  <a class="callbtn" href="tel:+916304877983" aria-label="Call helpline"><svg class="ic"><use href="#i-phone"/></svg><span>Call helpline</span></a>
 </div></header>
+<nav id="bar"><button data-p="home"><svg class="ic"><use href="#i-home"/></svg>Home</button><button data-p="mestri"><svg class="ic"><use href="#i-hat"/></svg>Mestris</button><button data-p="supplier"><svg class="ic"><use href="#i-box"/></svg>Suppliers</button><button data-p="builders"><svg class="ic"><use href="#i-build"/></svg>Builders</button><button data-p="contact"><svg class="ic"><use href="#i-phone"/></svg>Contact</button></nav>
+<button id="mini" type="button"><span>Estimate · view breakdown</span><b id="miniTotal">₹ —</b></button>
 
 <main>
-<!-- ===== HOME ===== -->
 <section id="home" class="page">
-  <div class="hero"><h1>Estimate centring &amp; steel <span>in 30 seconds</span></h1>
+  <div class="hero"><h1>Estimate centring &amp; steel in 30 seconds</h1>
   <p class="sub">Slab, beam, column • labour + hire + consumables + steel. Numbers update as you type.</p></div>
-  <div class="grid2">
+  <div class="calc">
     <div class="box">
-      <h3 style="margin-top:0">1. Job size</h3>
+      <div class="boxh"><h3>1. Job size</h3><button class="b ghost" id="resetBtn" type="button">Reset</button></div>
       <div class="row">
         <div class="f"><label>Slab area (sq.ft)</label><input type="number" id="slabArea" value="1200" min="1" step="50" inputmode="decimal"></div>
         <div class="f"><label>Beam length (RFT)</label><input type="number" id="beamLength" value="80" min="0" step="10" inputmode="decimal"></div>
@@ -91,72 +165,69 @@ footer{text-align:center;color:var(--mut);font-size:.8rem;padding:24px}
         <div class="f"><label>Column steel (kg/col)</label><input type="number" id="colSteelKg" value="58" step="1"></div>
         <div class="f"><label>Column shutter (sq.ft/col)</label><input type="number" id="colArea" value="3.6" step="0.1"></div>
       </div>
-      <div class="btns">
-        <button class="btn ghost" id="resetBtn">↺ Reset</button>
-        <button class="btn dark" id="csvBtn">⬇ Excel (CSV)</button>
-        <button class="btn" id="shareBtn" style="background:#16a34a">WhatsApp</button>
+    </div>
+    <aside class="slip" id="slip">
+      <div class="top">
+        <div class="lbl">Total estimate (excl. GST)</div>
+        <div class="grand" id="grand">₹ —</div><div id="persq">—</div>
+        <div class="split" id="split"></div><ul class="legend" id="legend"></ul>
       </div>
-    </div>
-    <div class="box">
-      <div class="mut">Total estimate (excl. GST)</div>
-      <div class="grand" id="grand">₹ —</div><div class="mut" id="persq">—</div>
-      <div id="warn" class="msg bad" style="display:none"></div>
-      <div id="items" style="max-height:560px;overflow:auto;margin-top:8px"></div>
-    </div>
+      <div class="bd">
+        <div id="warn" class="msg bad" style="display:none"></div>
+        <div id="items"></div>
+        <div class="btns"><button class="btn dark" id="csvBtn">⬇ Excel (CSV)</button><button class="btn wa" id="shareBtn">WhatsApp</button></div>
+      </div>
+    </aside>
   </div>
   <div class="box"><h2>Digital centring network</h2><p class="sub">Everyone has their own sign-up and listing.</p>
     <div class="net">
-      <div class="card"><h4>👷 Find a mestri</h4><p>Verified centring contractors</p><button class="b q" data-go="mestri:mfind">Browse →</button></div>
-      <div class="card"><h4>📋 Open projects</h4><p>Mestris: see jobs and send quotes</p><button class="b q" data-go="mestri:mboard">View jobs →</button></div>
-      <div class="card"><h4>📦 Hire material</h4><p>Plates, props, jacks on rent</p><button class="b q" data-go="supplier:sfind">Browse →</button></div>
-      <div class="card"><h4>🚀 Post a project</h4><p>Get quotes from mestris</p><button class="b q" data-go="builders:bpost">Post free →</button></div>
+      <div class="card"><span class="ibox"><svg class="ic"><use href="#i-hat"/></svg></span><h4>Find a mestri</h4><p>Verified centring contractors</p><div class="acts"><button class="b q" data-go="mestri:mfind">Browse</button></div></div>
+      <div class="card"><span class="ibox"><svg class="ic"><use href="#i-list"/></svg></span><h4>Open projects</h4><p>Mestris: see jobs and send quotes</p><div class="acts"><button class="b q" data-go="mestri:mboard">View jobs</button></div></div>
+      <div class="card"><span class="ibox"><svg class="ic"><use href="#i-box"/></svg></span><h4>Hire material</h4><p>Plates, props, jacks on rent</p><div class="acts"><button class="b q" data-go="supplier:sfind">Browse</button></div></div>
+      <div class="card"><span class="ibox"><svg class="ic"><use href="#i-plus"/></svg></span><h4>Post a project</h4><p>Get quotes from mestris</p><div class="acts"><button class="b q" data-go="builders:bpost">Post free</button></div></div>
     </div></div>
 </section>
 
-<!-- ===== MESTRI ===== -->
 <section id="mestri" class="page">
-  <h2>👷 Mestri hub</h2><p class="sub">Get listed, see open projects, and send quotes to builders.</p>
+  <h2>Mestri hub</h2><p class="sub">Get listed, see open projects, and send quotes to builders.</p>
   <div class="tabs"><button data-tab="mfind" class="on">Find mestris</button><button data-tab="mboard">Open projects</button><button data-tab="mreg">Register / get listed</button></div>
   <div class="panel on box" id="mfind"><input id="mSearch" placeholder="Search by name, zone or skill…"><div class="dir" id="mDir"></div></div>
   <div class="panel box" id="mboard">
     <div class="f"><label>Your registered mestri mobile (unlocks builder contacts &amp; quoting)</label><input id="boardPhone" type="tel" inputmode="numeric" placeholder="10-digit mobile"></div>
     <button class="btn dark" id="boardGo">Show projects</button><div id="board" class="dir" style="display:block"></div>
   </div>
-  <div class="panel box" id="mreg"><h3 style="margin-top:0">Register as a mestri — free</h3><p class="mut" style="margin-bottom:12px">We verify your profile, then list you. You can quote on projects once listed.</p><form id="f-mreg" novalidate></form></div>
+  <div class="panel box" id="mreg"><h3 style="margin-top:0">Register as a mestri — free</h3><p class="mut" style="margin-bottom:14px">We verify your profile, then list you. You can quote on projects once listed.</p><form id="f-mreg" novalidate></form></div>
 </section>
 
-<!-- ===== SUPPLIER ===== -->
 <section id="supplier" class="page">
-  <h2>📦 Suppliers network</h2><p class="sub">List plates, props, U-jacks and runners. Mestris and builders call you directly.</p>
+  <h2>Suppliers network</h2><p class="sub">List plates, props, U-jacks and runners. Mestris and builders call you directly.</p>
   <div class="tabs"><button data-tab="sfind" class="on">Find suppliers</button><button data-tab="sreg">Register</button><button data-tab="sstock">Manage my stock</button></div>
   <div class="panel on" id="sfind">
     <div class="box"><h3 style="margin-top:0">Hot hire items</h3>
-      <table id="demand" style="width:100%;text-align:left;font-size:.88rem"><tr><th>Item</th><th>Rent (₹)</th><th>Demand</th></tr>
-      <tr><td>MS shuttering plate</td><td>2.8–3.2 /sqft/day</td><td>High</td></tr><tr><td>Adjustable prop</td><td>11–14 /day</td><td>Very high</td></tr>
-      <tr><td>Top jack (U-head)</td><td>9–11 /day</td><td>High</td></tr><tr><td>Wooden runner</td><td>0.9–1.2 /RFT/day</td><td>Medium</td></tr></table></div>
+      <table id="demand"><tr><th>Item</th><th>Rent (₹)</th><th>Demand</th></tr>
+      <tr><td>MS shuttering plate</td><td>2.8–3.2 /sqft/day</td><td><span class="dm hi">High</span></td></tr><tr><td>Adjustable prop</td><td>11–14 /day</td><td><span class="dm hi">Very high</span></td></tr>
+      <tr><td>Top jack (U-head)</td><td>9–11 /day</td><td><span class="dm hi">High</span></td></tr><tr><td>Wooden runner</td><td>0.9–1.2 /RFT/day</td><td><span class="dm md">Medium</span></td></tr></table></div>
     <div class="box"><input id="sSearch" placeholder="Search suppliers by name or zone…"><div class="dir" id="sDir"></div></div>
   </div>
   <div class="panel box" id="sreg"><h3 style="margin-top:0">Register your company — free</h3><form id="f-sreg" novalidate></form></div>
   <div class="panel box" id="sstock"><h3 style="margin-top:0">Add or update stock</h3>
-    <p class="mut" style="margin-bottom:12px">Use the Supplier ID you got at registration (after we activate you). To change an existing item, enter its Item ID (shown in your stock list).</p><form id="f-stock" novalidate></form></div>
+    <p class="mut" style="margin-bottom:14px">Use the Supplier ID you got at registration (after we activate you). To change an existing item, enter its Item ID (shown in your stock list).</p><form id="f-stock" novalidate></form></div>
 </section>
 
-<!-- ===== BUILDERS ===== -->
 <section id="builders" class="page">
-  <h2>🏗️ Builders &amp; developers</h2><p class="sub">Post your project once and mestris send you quotes. Check them anytime with your mobile number.</p>
+  <h2>Builders &amp; developers</h2><p class="sub">Post your project once and mestris send you quotes. Check them anytime with your mobile number.</p>
   <div class="tabs"><button data-tab="bpost" class="on">Post a project</button><button data-tab="bmine">My projects &amp; quotes</button></div>
-  <div class="panel on box" id="bpost"><button class="btn ghost" id="fillCalc" style="margin-bottom:12px">📐 Fill sizes from the calculator</button><form id="f-post" novalidate></form></div>
+  <div class="panel on box" id="bpost"><button class="btn ghost" id="fillCalc" style="margin-bottom:14px">📐 Fill sizes from the calculator</button><form id="f-post" novalidate></form></div>
   <div class="panel box" id="bmine">
     <div class="f"><label>Your mobile number</label><input id="minePhone" type="tel" inputmode="numeric" placeholder="10-digit mobile used while posting"></div>
-    <button class="btn dark" id="mineGo">Show my projects</button><div id="mine" style="margin-top:12px"></div>
+    <button class="btn dark" id="mineGo">Show my projects</button><div id="mine" style="margin-top:14px"></div>
   </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
 <section id="contact" class="page">
-  <h2>📞 Get in touch</h2>
+  <h2>Get in touch</h2><p class="sub">Call, email or send a message — we reply fast.</p>
   <div class="grid2"><div class="box"><p><b>Hyderabad office</b><br>Mestri Centring Network, Hitech City, Hyderabad 500081</p>
-    <p style="margin-top:10px"><b>Helpline</b> <a href="tel:+916304877983">+91 6304877983</a> (Mon–Sat 9–7)</p><p><b>Email</b> nbraju@hotmail.com</p>
+    <p style="margin-top:12px"><b>Helpline</b> <a href="tel:+916304877983">+91 6304877983</a> (Mon–Sat 9–7)</p><p><b>Email</b> nbraju@hotmail.com</p>
     <p class="mut" style="margin-top:14px">We use your phone number only to contact you about your enquiry or listing.</p></div>
     <div class="box"><h3 style="margin-top:0">Quick message</h3><form id="f-contact" novalidate></form></div></div>
 </section>
@@ -180,7 +251,8 @@ const fd = x => { const d = new Date(x); return isNaN(d) ? '' : d.toLocaleDateSt
 const stars = r => { const n = Math.max(0, Math.min(5, Math.round(Number(r)||0))); return '★'.repeat(n) + '☆'.repeat(5-n); };
 const isT = v => String(v).toUpperCase() === 'TRUE';
 function toast(m){const t=$('toast');t.textContent=m;t.style.opacity=1;clearTimeout(t.h);t.h=setTimeout(()=>t.style.opacity=0,2600)}
-function setPill(on){const p=$('pill');p.textContent=on?'● Live rates':'○ Offline rates';p.style.color=on?'#16a34a':'#b45309'}
+function setPill(on){const p=$('pill');p.textContent=on?'Live rates':'Offline rates';p.className='pill'+(on?' live':'')}
+function _unused(on){const p=$('pill');p.textContent=on?'● Live rates':'○ Offline rates';p.style.color=on?'#16a34a':'#b45309'}
 
 function get(action, params = {}) {                     // JSONP read
   return new Promise((res, rej) => {
@@ -253,20 +325,22 @@ $('fillCalc').onclick = () => { const e = window.cur; if (!e) return toast('Ente
   const g = e.geo; [['slab',g.slab],['beam',g.beam],['cols',g.cols],['days',g.days]].forEach(([k,v]) => $('f-post-'+k).value = v); toast('Filled from calculator'); };
 
 /* ============ directories ============ */
-const contactBtns = p => `<a class="b call" href="${tel(p)}">📞 Call</a><a class="b wa" href="${wa(p)}" target="_blank" rel="noopener">WhatsApp</a>`;
+const contactBtns = p => `<a class="b call" href="${tel(p)}">Call</a><a class="b wa" href="${wa(p)}" target="_blank" rel="noopener">WhatsApp</a>`;
 let mCache = null, sCache = null;
+const sk = n => '<div class="card sk"></div>'.repeat(n);
+const ini = n => String(n || '?').trim().split(/\s+/).slice(0, 2).map(w => w[0]).join('').toUpperCase();
 async function loadMestris() {
-  const box = $('mDir'); if (!mCache) { try { mCache = await get('getMestris'); } catch (e) { box.innerHTML = errBox('loadMestris'); return; } }
-  box.innerHTML = mCache.length ? mCache.map(m => `<div class="card"><h4>${esc(m.name)}${isT(m.verified)?'<span class="badge">✔ VERIFIED</span>':''}</h4>
-    <div class="meta"><span style="color:#f59e0b">${stars(m.rating)}</span><br><b>${esc(m.experience_years||'—')}</b> yrs • gang of <b>${esc(m.gang_size||'—')}</b><br>
-    Zones: ${esc(m.zones||'—')}<br>${esc(m.specializations||'Slab, beam, column')}</div><div class="acts">${contactBtns(m.phone)}</div></div>`).join('')
+  const box = $('mDir'); if (!mCache) { box.innerHTML = sk(6); try { mCache = await get('getMestris'); } catch (e) { box.innerHTML = errBox('loadMestris'); return; } }
+  box.innerHTML = mCache.length ? mCache.map(m => `<div class="card"><div class="who"><span class="av">${esc(ini(m.name))}</span><div><h4>${esc(m.name)}</h4><span class="stars">${stars(m.rating)}</span></div>${isT(m.verified)?'<span class="badge">✔ Verified</span>':''}</div>
+    <div class="chips"><span><b>${esc(m.experience_years||'—')}</b> yrs</span><span>Gang of <b>${esc(m.gang_size||'—')}</b></span></div>
+    <div class="meta">Zones: ${esc(m.zones||'—')}<br>${esc(m.specializations||'Slab, beam, column')}</div><div class="acts">${contactBtns(m.phone)}</div></div>`).join('')
     : '<div class="empty">No mestris listed yet — be the first: use “Register / get listed”.</div>';
 }
 async function loadSuppliers() {
-  const box = $('sDir'); if (!sCache) { try { sCache = await get('getSuppliers'); } catch (e) { box.innerHTML = errBox('loadSuppliers'); return; } }
-  box.innerHTML = sCache.length ? sCache.map(s => `<div class="card"><h4>${esc(s.company_name)}${isT(s.verified)?'<span class="badge">✔ VERIFIED</span>':''}</h4>
+  const box = $('sDir'); if (!sCache) { box.innerHTML = sk(6); try { sCache = await get('getSuppliers'); } catch (e) { box.innerHTML = errBox('loadSuppliers'); return; } }
+  box.innerHTML = sCache.length ? sCache.map(s => `<div class="card"><div class="who"><span class="av">${esc(ini(s.company_name))}</span><div><h4>${esc(s.company_name)}</h4></div>${isT(s.verified)?'<span class="badge">✔ Verified</span>':''}</div>
     <div class="meta">Contact: ${esc(s.contact_person||'—')}<br>Serves: ${esc(s.zones_served||'—')}</div>
-    <div class="acts">${contactBtns(s.phone)}<button class="b" data-sid="${esc(s.supplier_id)}">📦 Stock &amp; rents</button></div><div class="inv" id="inv-${esc(s.supplier_id)}"></div></div>`).join('')
+    <div class="acts">${contactBtns(s.phone)}<button class="b" data-sid="${esc(s.supplier_id)}">Stock &amp; rents</button></div><div class="inv" id="inv-${esc(s.supplier_id)}"></div></div>`).join('')
     : '<div class="empty">No suppliers listed yet — use “Register”.</div>';
 }
 $('sDir').addEventListener('click', async e => {
@@ -278,7 +352,7 @@ $('sDir').addEventListener('click', async e => {
   inv.style.display = 'block';
 });
 async function loadDemand() { try { const d = await get('getDemand'); if (d.length) $('demand').innerHTML = '<tr><th>Item</th><th>Rent (₹)</th><th>Demand</th></tr>' +
-  d.map(r => `<tr><td>${esc(r.item)}</td><td>${esc(r.rent_low)}–${esc(r.rent_high)} /${esc(r.unit)}</td><td>${esc(r.demand_zone)}</td></tr>`).join(''); } catch (e) {} }
+  d.map(r => `<tr><td>${esc(r.item)}</td><td>${esc(r.rent_low)}–${esc(r.rent_high)} /${esc(r.unit)}</td><td><span class="dm ${/high/i.test(r.demand_zone)?'hi':/med/i.test(r.demand_zone)?'md':'lo'}">${esc(r.demand_zone)}</span></td></tr>`).join(''); } catch (e) {} }
 
 /* ============ open projects (mestris) ============ */
 async function loadBoard() {
@@ -288,8 +362,8 @@ async function loadBoard() {
     const r = await get('getProjects', {phone: ph});
     box.innerHTML = (r.unlocked ? '' : '<div class="note" style="margin-bottom:12px">Enter your registered &amp; listed mestri mobile above to see builder contacts and send quotes.</div>') +
       '<div class="dir">' + (r.projects.length ? r.projects.map(p => { const id = esc(p.project_id);
-      return `<div class="card"><h4>${esc(p.title)}</h4><div class="meta">📍 ${esc(p.location_zone)} • Slab ${esc(p.slab_sqft)} sq.ft • Beam ${esc(p.beam_rft)} RFT • ${esc(p.columns)} cols • ${esc(p.hire_days)} days<br>Posted ${fd(p.posted_at)}</div>
-      ${r.unlocked ? `<div class="meta"><b>${esc(p.builder_contact)}</b></div><div class="acts">${contactBtns(p.builder_contact)}<button class="b q" data-q="${id}">💰 Send quote</button></div><div id="qf-${id}"></div>` : ''}</div>`; }).join('')
+      return `<div class="card"><h4>${esc(p.title)}</h4><div class="meta">${esc(p.location_zone)} • Slab ${esc(p.slab_sqft)} sq.ft • Beam ${esc(p.beam_rft)} RFT • ${esc(p.columns)} cols • ${esc(p.hire_days)} days<br>Posted ${fd(p.posted_at)}</div>
+      ${r.unlocked ? `<div class="meta"><b>${esc(p.builder_contact)}</b></div><div class="acts">${contactBtns(p.builder_contact)}<button class="b q" data-q="${id}">Send quote</button></div><div id="qf-${id}"></div>` : ''}</div>`; }).join('')
       : '<div class="empty">No open projects right now — check back soon.</div>') + '</div>';
   } catch (e) { box.innerHTML = errBox('loadBoard'); }
 }
@@ -331,7 +405,7 @@ const RATES = {
  'M-H04':{name:'Bottom base plate hire',cat:'hire',unit:'pc×day',baseRate:8},'M-H05':{name:'Wooden runner hire',cat:'hire',unit:'RFT×day',baseRate:1},
  'C-01':{name:'Mould release oil',cat:'consumable',unit:'litre',baseRate:45},'C-02':{name:'Binding wire (annealed)',cat:'consumable',unit:'kg',baseRate:65},
  'C-03':{name:'Nails, assorted',cat:'consumable',unit:'kg',baseRate:90}};
-const CATS = [['labour_fix','🪚 Labour — fixing'],['labour_dis','🔨 Labour — dismantling & cleaning'],['hire','⛑️ Material hire'],['consumable','🧴 Consumables'],['permanent_steel','🏗️ Permanent steel']];
+const CATS = [['labour_fix','Labour — fixing'],['labour_dis','Labour — dismantling & cleaning'],['hire','Material hire'],['consumable','Consumables'],['permanent_steel','Permanent steel']];
 const ZONES = [['ZONE1','ZONE1',1],['ZONE2','ZONE2',1.08],['ZONE3','ZONE3',1.15],['ZONE4','ZONE4',0.9]];
 const PROJ = [['T1','Individual house',1],['T2','Apartment G+2 to G+4',.95],['T3','Commercial complex',1.12]];
 function fillSel(id, rows, def) {
@@ -363,12 +437,15 @@ function est() {
 function render() {
   const e = est(), w = $('warn');
   if (!e) { window.cur = null; w.style.display = 'block'; w.textContent = 'Enter slab area above 0 and hire days of 1 or more (no negative values).';
-    $('grand').textContent = '₹ —'; $('persq').textContent = '—'; $('items').innerHTML = ''; return; }
+    $('grand').textContent = '₹ —'; $('persq').textContent = '—'; $('items').innerHTML = ''; $('split').innerHTML = $('legend').innerHTML = ''; $('miniTotal').textContent = '₹ —'; return; }
   w.style.display = 'none'; window.cur = e;
   $('grand').textContent = inr(e.grand); $('persq').textContent = inr(e.perSqft) + ' per sq.ft • combined factor ' + e.cm.toFixed(3) + '×';
-  $('items').innerHTML = CATS.map(([c, label]) => { const it = e.items.filter(i => i.category === c); if (!it.length) return '';
-    return `<div class="cat">${label}</div>` + it.map(i => `<div class="it"><div>${esc(i.name)}</div><div>${Number(i.qty).toLocaleString('en-IN')} ${esc(i.unit)}</div><div>₹${i.rate.toFixed(2)}</div><div><b>${inr(i.total)}</b></div></div>`).join('')
-      + `<div class="sum"><span>Subtotal</span><span>${inr(e.cat[c])}</span></div>`; }).join('');
+  $('miniTotal').textContent = inr(e.grand);
+  const tot = e.grand || 1, used = CATS.map(([c, l], k) => [c, l, k]).filter(x => e.cat[x[0]] > 0);
+  $('split').innerHTML = used.map(([c, l, k]) => `<i style="flex:${e.cat[c]};background:var(--c${k})" title="${esc(l)}"></i>`).join('');
+  $('legend').innerHTML = used.map(([c, l, k]) => `<li><i style="background:var(--c${k})"></i>${esc(l.split(' — ')[0])}<b>${Math.round(e.cat[c] / tot * 100)}%</b></li>`).join('');
+  $('items').innerHTML = used.map(([c, label, k]) => `<details class="grp" open style="--c:var(--c${k})"><summary><span>${esc(label)}</span><b>${inr(e.cat[c])}</b></summary>`
+    + e.items.filter(i => i.category === c).map(i => `<div class="it"><div>${esc(i.name)}</div><div class="q">${Number(i.qty).toLocaleString('en-IN')} ${esc(i.unit)} × ₹${i.rate.toFixed(2)}</div><div class="t">${inr(i.total)}</div></div>`).join('') + '</details>').join('');
 }
 function logEst() { const e = window.cur; if (e) post('logEstimate', {...e.geo, grandTotal: e.grand, perSqft: e.perSqft, steelKg: Math.round(e.steelKg), inputs: e.geo}); }
 $('csvBtn').onclick = () => { const e = window.cur; if (!e) return toast('Enter valid sizes first'); const g = e.geo;
@@ -400,8 +477,8 @@ async function bootstrap() {
 function show(p) {
   if (!$(p) || !$(p).classList.contains('page')) p = 'home';
   document.querySelectorAll('.page').forEach(x => x.classList.toggle('on', x.id === p));
-  document.querySelectorAll('#nav button').forEach(b => b.classList.toggle('on', b.dataset.p === p));
-  mCache = sCache = null;
+  document.querySelectorAll('nav button[data-p]').forEach(b => b.classList.toggle('on', b.dataset.p === p));
+  mCache = sCache = null; document.body.dataset.page = p;
   if (p === 'mestri') loadMestris(); if (p === 'supplier') { loadSuppliers(); loadDemand(); } window.scrollTo(0, 0);
 }
 function tab(t) { const b = document.querySelector(`.tabs [data-tab="${t}"]`); if (b) b.click(); }
@@ -415,6 +492,11 @@ window.addEventListener('hashchange', () => show(location.hash.slice(1)));
 
 fillSel('zoneSelect', ZONES, 'ZONE2'); fillSel('projectSelect', PROJ, 'T1');
 show(location.hash.slice(1) || 'home'); render(); bootstrap();
+
+/* ============ look & feel additions ============ */
+$('bar').addEventListener('click', e => { const b = e.target.closest('[data-p]'); if (b) location.hash = b.dataset.p; });
+$('mini').onclick = () => $('slip').scrollIntoView({behavior: 'smooth', block: 'start'});
+if ('IntersectionObserver' in window) new IntersectionObserver(([x]) => document.body.classList.toggle('slipin', x.isIntersecting), {rootMargin: '0px 0px -120px 0px'}).observe($('slip'));
 </script>
 </body>
 </html>
