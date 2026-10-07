@@ -1,0 +1,22 @@
+# CentringAdda
+
+> CentringAdda (https://centringadda.online/) is a free centring (centering) and steel cost calculator and contractor marketplace for Hyderabad, Telangana, India. It estimates slab, beam and column shuttering labour, steel centring material hire and Fe500 reinforcement steel, and connects builders with verified centring mestris and shuttering material suppliers. Rates are indicative, excluding GST. Office: Hitech City, Hyderabad 500081. Phone/WhatsApp: +919948680017.
+
+## Pages
+- [Centring Cost Calculator Hyderabad | Slab Shuttering Rate – CentringAdda](https://centringadda.online/): Free centring & steel cost calculator for Hyderabad. Estimate slab, beam and column shuttering labour, MS plate and prop hire and Fe500 steel per sq.ft. Find verified centring mestris and suppliers.
+- [Centring Mestris & Contractors in Hyderabad | CentringAdda](https://centringadda.online/mestris/): Find verified centring mestris, shuttering contractors and formwork gangs in Hyderabad. Search by zone and skill, call or WhatsApp directly, and register free to get listed.
+- [Centring Material on Rent Hyderabad – Plates, Props, Jacks](https://centringadda.online/suppliers/): Hire MS shuttering plates, adjustable props, top jacks, base plates and runners in Hyderabad. See indicative daily rents and contact verified suppliers directly.
+- [Post Your Construction Project Free – Get Centring Quotes | CentringAdda](https://centringadda.online/post-project/): Builders and developers in Hyderabad: post your slab, beam and column centring requirement free and receive quotes from verified mestris. Track quotes with your mobile number.
+- [Contact CentringAdda – Hitech City, Hyderabad 500081](https://centringadda.online/contact/): Call or WhatsApp CentringAdda for centring contractors, shuttering material hire and cost estimates in Hyderabad. Office at Hitech City, Hyderabad 500081.
+- [Centring Best Practice Guide – Safe Shuttering & Props | CentringAdda](https://centringadda.online/guide/): Centring and shuttering safety guide for mestris, workers, engineers, builders and suppliers: golden rules, prop layout, stripping time under IS 456:2000 and common defects.
+- [సెంట్రింగ్ గైడ్ తెలుగులో – మేస్త్రీల కోసం | CentringAdda](https://centringadda.online/telugu-guide/): మేస్త్రీలు, కార్మికులకు సెంట్రింగ్ షట్టరింగ్ జాగ్రత్తలు, ప్రాప్స్ & ప్లేట్లు తీసే కనీస సమయం (IS 456) తెలుగులో. హైదరాబాద్, తెలంగాణ.
+- [Centring Stripping Time Calculator – IS 456 Formwork Removal](https://centringadda.online/stripping-time-calculator/): Find the earliest date to remove slab, beam and column formwork and props from the date of pour, per IS 456:2000 cl. 11.3. Adjusts for OPC and PPC cement.
+- [Centring Defects, Causes & Prevention – Honeycombing, Bulging](https://centringadda.online/centring-defects/): Common centring and shuttering defects with typical causes and prevention: honeycombing, bulging, leakage, sagging slabs. Practical checks for Indian construction sites.
+
+## Key facts
+- With the calculator's built-in default rates (zone factor ×1.08, individual house), a sample job of 1200 sq.ft slab, 80 RFT beam, 12 columns and 21 days of hire comes to about ₹7,91,207 excluding GST, roughly ₹659 per sq.ft including steel. Live rates and your own inputs will change this.
+- Also known as: centring, centering, shuttering, formwork, mestri, maistry, mistri.
+- Languages: English and Telugu (తెలుగు).
+
+## Optional
+- [Sitemap](https://centringadda.online/sitemap.xml)
