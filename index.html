@@ -148,7 +148,15 @@ footer{text-align:center;color:var(--mut);font-size:.82rem;padding:8px 20px 28px
 .tabs button.on{background:var(--t);color:#fff;border-color:var(--t);box-shadow:0 4px 12px -4px color-mix(in srgb,var(--t) 70%,transparent)}
 .tabs button:nth-child(8n+1){--t:#e8590c}.tabs button:nth-child(8n+2){--t:#0f766e}.tabs button:nth-child(8n+3){--t:#4b78c0}.tabs button:nth-child(8n+4){--t:#b7791f}
 .tabs button:nth-child(8n+5){--t:#7c3aed}.tabs button:nth-child(8n+6){--t:#15803d}.tabs button:nth-child(8n+7){--t:#be185d}.tabs button:nth-child(8n+8){--t:#475569}
-.seo{margin-top:6px}.seo h2{font-size:1.25rem}.seo p{font-size:.92rem;color:var(--mut);margin:6px 0 10px;max-width:90ch}.seo .gd p{padding-bottom:12px}.fl{display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:center;margin:0 0 10px}.fl a{color:var(--ink);font-weight:600;text-decoration:none}.fl a:hover{color:var(--od);text-decoration:underline}.seo-intro{max-width:90ch}</style>
+.seo{margin-top:6px}.seo h2{font-size:1.25rem}.seo p{font-size:.92rem;color:var(--mut);margin:6px 0 10px;max-width:90ch}.seo .gd p{padding-bottom:12px}.fl{display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:center;margin:0 0 10px}.fl a{color:var(--ink);font-weight:600;text-decoration:none}.fl a:hover{color:var(--od);text-decoration:underline}.seo-intro{max-width:90ch}.promo{display:grid;grid-template-columns:1fr 1fr;background:linear-gradient(135deg,#16222d,#27405a);color:#fff;border-radius:18px;margin:0 0 20px;overflow:hidden;box-shadow:var(--sh)}
+.promo>div{padding:20px 22px}.promo .en{border-right:1px solid rgba(255,255,255,.14)}
+.promo .tag{display:inline-block;font:700 .66rem Inter,sans-serif;letter-spacing:.08em;text-transform:uppercase;color:#ffb27a;margin-bottom:6px}
+.promo h2{font-size:1.18rem;line-height:1.3;margin:0 0 6px;color:#fff}.promo p{font-size:.92rem;line-height:1.55;color:#dbe3ea;margin:0}
+.promo .te h2{line-height:1.5}.promo .te p{line-height:1.8}
+@media(max-width:760px){.promo{grid-template-columns:1fr}.promo .en{border-right:0;border-bottom:1px solid rgba(255,255,255,.14)}.promo>div{padding:16px 18px}}
+.zg{grid-column:1/-1;margin:8px 0 4px;background:#fff7e6;border:1px solid #f1d49b;border-left:4px solid var(--c1);border-radius:10px;padding:10px 12px;font-size:.82rem;line-height:1.5;color:#5b4310}
+.zg b{color:#3d2c05}.zg .fx{display:block;margin-top:4px}.zk{display:grid;gap:3px;margin-top:4px}
+</style>
 
 <style id="mods">
 /* ---- brand block: logo + live-rate pill below ---- */
@@ -212,8 +220,9 @@ nav button,.tabs button,.btn{font-weight:650;letter-spacing:-.005em}
 
 <main>
 <section id="home" class="page">
-  <div class="hero"><h1>Centring &amp; steel cost calculator — Hyderabad</h1>
-  <p class="sub">Estimate centring (centering) &amp; steel in 30 seconds. Slab, beam, column • labour + hire + consumables + steel. Numbers update as you type.</p></div>
+  <div class="promo"><div class="en"><span class="tag"></span><h2>Know your centring cost before you build.</h2><p>Slab, beam, column — get an estimate in 30 seconds, then find a trusted mestri or supplier here. Free, with no sign-up.</p></div><div class="te" lang="te"><span class="tag"></span><h2>కట్టడం మొదలుపెట్టే ముందే మీ సెంట్రింగ్ ఖర్చు తెలుసుకోండి.</h2><p>స్లాబ్, బీమ్, కాలమ్ — 30 సెకన్లలో అంచనా పొందండి, ఆ తర్వాత నమ్మకమైన మేస్త్రీ లేదా సప్లయర్‌ను ఇక్కడే వెతకండి. ఉచితం, సైన్-అప్ అవసరం లేదు.</p></div></div>
+<div class="hero"><h1>Centring &amp; steel cost Estimator — Approximates for Hyderabad</h1>
+  <p class="sub">Estimate centring &amp; steel costs in 30 seconds. Slab, beam, column • labour + hire + consumables + steel. Numbers update as you type.</p></div>
   <div class="calc">
     <div class="box">
       <div class="boxh"><h3>1. Job size</h3><button class="b ghost" id="resetBtn" type="button">Reset</button></div>
@@ -228,6 +237,7 @@ nav button,.tabs button,.btn{font-weight:650;letter-spacing:-.005em}
         <div class="f"><label>Zone</label><select id="zoneSelect"></select></div>
         <div class="f"><label>Project type</label><select id="projectSelect"></select></div>
       </div>
+      <div class="zg" id="zoneGuide" aria-live="polite"></div>
       <h3>3. Steel &amp; column details</h3>
       <div class="row">
         <div class="f"><label>Steel rate (₹/kg)</label><input type="number" id="steelRate" value="72" step="1"></div>
@@ -261,7 +271,8 @@ nav button,.tabs button,.btn{font-weight:650;letter-spacing:-.005em}
 <div class="box seo"><h2>Centring cost calculator &amp; contractor network in Hyderabad</h2><p>CentringAdda (Centring Adda) is a free online centring cost calculator and marketplace for Hyderabad and Telangana. Estimate slab, beam and column shuttering labour, steel centring material hire, consumables and Fe500 reinforcement steel, then find verified centring mestris, formwork contractors and shuttering suppliers, or post your project to receive quotes. Rates are indicative and shown excluding GST.</p><p><b>Serving Hyderabad localities:</b> Hitech City, Gachibowli, Kondapur, Madhapur, Kukatpally, Miyapur, Kompally, Secunderabad, Uppal, LB Nagar, Dilsukhnagar, Shamshabad, Bachupally, Medchal, Ameerpet, Banjara Hills, Jubilee Hills, Nizampet, Patancheru, Ghatkesar.</p><h3>Frequently asked questions</h3><details class="gd"><summary><span>How much does centring cost per sq.ft in Hyderabad?</span></summary><p class="mut">With the calculator's built-in default rates (zone factor ×1.08, individual house), a sample job of 1200 sq.ft slab, 80 RFT beam, 12 columns and 21 days of hire comes to about ₹7,91,207 excluding GST, roughly ₹659 per sq.ft including steel. Live rates and your own inputs will change this. Enter your own slab area, beam length, columns, hire days, zone and steel rate for a current figure.</p></details><details class="gd"><summary><span>What does the centring estimate include?</span></summary><p class="mut">Labour for fixing and dismantling shuttering, MS plate, adjustable prop, top jack, base plate and wooden runner hire, consumables (mould release oil, binding wire, nails) and permanent reinforcement steel (Fe500) for slab, beam and column.</p></details><details class="gd"><summary><span>Is the CentringAdda calculator free?</span></summary><p class="mut">Yes. The centring and steel cost calculator, mestri search, supplier search and project posting are free to use. Totals are shown excluding GST and can be downloaded as CSV (Excel) or shared on WhatsApp.</p></details><details class="gd"><summary><span>What is a mestri (maistry, mistri)?</span></summary><p class="mut">A mestri is the site foreman or contractor who leads a gang of workers for centring, shuttering, bar bending or masonry. CentringAdda lists mestris with experience, gang size, zones and specialisation, and verified profiles carry a badge.</p></details><details class="gd"><summary><span>What is centring (centering) and shuttering?</span></summary><p class="mut">Centring is the temporary formwork, made of plates, props, jacks and runners, that holds wet concrete for slabs, beams and columns until it gains strength. In India the terms centring, centering, shuttering and formwork are used interchangeably.</p></details><p><b>Also searched as:</b> centring cost calculator Hyderabad, centering cost per sq ft Hyderabad, slab centring rate, shuttering rate Hyderabad, centring mestri Hyderabad, centering contractors Hyderabad, shuttering contractors, formwork contractors Hyderabad, steel centring on rent, MS plate hire, adjustable props on rent, scaffolding on rent Hyderabad, slab shuttering labour rate, centring labour rate per sq ft, beam shuttering rate per RFT, column shuttering, centring material suppliers, construction estimate calculator, RCC slab cost calculator, reinforcement steel Fe500 calculator, bar bending steel quantity per sq ft, centring and steel estimate, house construction cost Hyderabad, Telangana, Secunderabad, IS 456 stripping time, centring removal time, mestri maistry mistri, builders quotes, post construction project free.</p></div></section>
 
 <section id="mestri" class="page">
-  <h2>Mestri hub</h2><p class="sub">Get listed, see open projects, and send quotes to builders.</p>
+<div class="promo"><div class="en"><span class="tag"></span><h2>Your skill deserves more sites.</h2><p>Get listed free, show your experience and gang size, see open projects and send quotes — builders call you directly.</p></div><div class="te" lang="te"><span class="tag"></span><h2>మీ నైపుణ్యానికి మరిన్ని సైట్లు దొరకాలి.</h2><p>ఉచితంగా నమోదు కండి, మీ అనుభవం, గ్యాంగ్ సైజ్ చూపించండి, ఓపెన్ ప్రాజెక్టులు చూసి కోట్ పంపండి — బిల్డర్లు నేరుగా మీకు ఫోన్ చేస్తారు.</p></div></div>
+  <h2>Mestri Hub</h2><p class="sub">Get listed, see open projects, and send quotes to builders.</p>
   <div class="tabs"><button data-tab="mfind" class="on">Find mestris</button><button data-tab="mboard">Open projects</button><button data-tab="mreg">Register / get listed</button></div>
   <div class="disc" role="note"><span class="i">i</span><div><b>Disclaimer:</b> CentringAdda is only a listing and introduction platform. Mestris are independent contractors, and a &ldquo;Verified&rdquo; badge means basic profile checks only &mdash; it is <b>not</b> a guarantee of skill, safety, licence or work quality. Please check past work, agree wages and scope in writing, and ensure site safety and insurance cover. Any dealing is directly between you and the mestri; CentringAdda is not liable for disputes, delays, injuries or losses.</div></div>
   <div class="panel on box" id="mfind"><input id="mSearch" placeholder="Search by name, zone or skill…"><div class="dir" id="mDir"></div></div>
@@ -273,7 +284,8 @@ nav button,.tabs button,.btn{font-weight:650;letter-spacing:-.005em}
 <div class="box seo"><h2>Find centring mestris, shuttering contractors &amp; formwork gangs</h2><h3>Frequently asked questions</h3><details class="gd"><summary><span>How do I find a verified centring mestri in Hyderabad?</span></summary><p class="mut">Open Find mestris, search by name, zone or skill, check experience years, gang size and the Verified badge, then call or WhatsApp the mestri directly.</p></details><details class="gd"><summary><span>How can a mestri get listed on CentringAdda?</span></summary><p class="mut">Register free under Register / get listed. The profile is verified and listed within 24 hours. Listed mestris can see open projects and send quotes.</p></details></div></section>
 
 <section id="supplier" class="page">
-  <h2>Suppliers network</h2><p class="sub">List plates, props, U-jacks and runners. Mestris and builders call you directly.</p>
+<div class="promo"><div class="en"><span class="tag"></span><h2>Put your plates, props and jacks to work.</h2><p>List your stock and let builders and mestris in your area find you. Every idle plate is rent you are not earning.</p></div><div class="te" lang="te"><span class="tag"></span><h2>మీ ప్లేట్లు, ప్రాప్స్, జాక్‌లకు పని కల్పించండి.</h2><p>మీ స్టాక్‌ను జాబితా చేయండి, మీ ప్రాంతంలోని బిల్డర్లు, మేస్త్రీలు మిమ్మల్ని సులభంగా కనుగొంటారు. ఖాళీగా ఉన్న ప్రతి ప్లేట్ అంటే రాని అద్దె.</p></div></div>
+  <h2>Suppliers Network</h2><p class="sub">List plates, props, U-jacks and runners. Mestris and builders call you directly.</p>
   <div class="tabs"><button data-tab="sfind" class="on">Find suppliers</button><button data-tab="sreg">Register</button><button data-tab="sstock">Manage my stock</button></div>
   <div class="disc" role="note"><span class="i">i</span><div><b>Disclaimer:</b> Stock, availability and hire rates are provided by the suppliers themselves and may change without notice. CentringAdda does not own, inspect or certify any material. Inspect props, plates, jacks and scaffolding for damage, straightness and load capacity before use, follow IS codes and site-safety rules, and settle rent, deposit and damage terms in writing with the supplier. We are not responsible for material quality, delivery or payment disputes.</div></div>
   <div class="panel on" id="sfind">
@@ -289,7 +301,8 @@ nav button,.tabs button,.btn{font-weight:650;letter-spacing:-.005em}
 <div class="box seo"><h2>Steel centring material on rent in Hyderabad</h2><h3>Frequently asked questions</h3><details class="gd"><summary><span>What are typical shuttering material hire rents in Hyderabad?</span></summary><p class="mut">Indicative rents shown on the site: MS shuttering plate ₹2.8–3.2 per sq.ft per day, adjustable prop ₹11–14 per day, top jack (U-head) ₹9–11 per day and wooden runner ₹0.9–1.2 per RFT per day. Live figures appear in the Hot hire items table.</p></details><details class="gd"><summary><span>How do suppliers list plates, props and jacks?</span></summary><p class="mut">Register the company free, receive a Supplier ID once activated, then add stock and daily rent under Manage my stock. Mestris and builders call you directly.</p></details></div></section>
 
 <section id="builders" class="page">
-  <h2>Builders &amp; developers</h2><p class="sub">Post your project once and mestris send you quotes. Check them anytime with your mobile number.</p>
+<div class="promo"><div class="en"><span class="tag"></span><h2>Post once. Compare quotes. Build with confidence.</h2><p>Share your slab, beam and column sizes and listed mestris send their quotes — no running around from site to site.</p></div><div class="te" lang="te"><span class="tag"></span><h2>ఒక్కసారి పోస్ట్ చేయండి. కోట్‌లు పోల్చండి. నమ్మకంగా కట్టండి.</h2><p>స్లాబ్, బీమ్, కాలమ్ సైజులు ఇవ్వండి, నమోదైన మేస్త్రీలు తమ కోట్‌లు పంపుతారు — సైట్ సైట్‌కూ తిరగాల్సిన పని లేదు.</p></div></div>
+  <h2>Builders &amp; Developers</h2><p class="sub">Post your project once and mestris send you quotes. Check them anytime with your mobile number.</p>
   <div class="tabs"><button data-tab="bpost" class="on">Post a project</button><button data-tab="bmine">My projects &amp; quotes</button></div>
   <div class="disc" role="note"><span class="i">i</span><div><b>Disclaimer:</b> Quotes on your project are sent by independent mestris and are <b>not</b> endorsed by CentringAdda. Posting a project does not guarantee responses or prices. Do not make advance payments without a written agreement, and share your contact details only with parties you trust. CentringAdda is not a party to any contract and is not liable for the work, payments or outcome.</div></div>
   <div class="panel on box" id="bpost"><button class="btn ghost" id="fillCalc" style="margin-bottom:14px">📐 Fill sizes from the calculator</button><form id="f-post" novalidate></form></div>
@@ -308,6 +321,7 @@ nav button,.tabs button,.btn{font-weight:650;letter-spacing:-.005em}
 <div class="disc" role="note"><span class="i">i</span><div><b>Note:</b> Messages sent through this site or WhatsApp are used only to respond to your enquiry. Please do not share bank details, OTPs or passwords. CentringAdda staff will never ask for them.</div></div>
 <div class="box seo"><h2>Contact CentringAdda</h2><h3>Frequently asked questions</h3><details class="gd"><summary><span>How do I contact CentringAdda?</span></summary><p class="mut">Call or WhatsApp +919948680017 (24/7) or use the quick message form. The office is at Hitech City, Hyderabad 500081.</p></details></div></section>
 <section id="guide" class="page">
+<div class="promo"><div class="en"><span class="tag"></span><h2>Strong centring starts with knowing the rules.</h2><p>Eight golden rules, stripping times and safety checks — simple guidance for every site, from mestri to engineer.</p></div><div class="te" lang="te"><span class="tag"></span><h2>బలమైన(గట్టి) సెంట్రింగ్ అంటే: నియమాలు తెలుసుకోవడంతో మొదలవుతుంది.</h2><p>ఎనిమిది బంగారు నియమాలు, స్ట్రిప్పింగ్ సమయాలు, భద్రతా తనిఖీలు — మేస్త్రీ నుండి ఇంజినీర్ వరకు ప్రతి సైట్‌కూ సులభమైన మార్గదర్శకం.</p></div></div>
   <h2>Centring best-practice guide</h2><p class="sub">Simple site rules for mestris, workers, engineers, builders and material suppliers. Safe, strong, on-time slabs.</p>
   <div class="tabs"><button data-tab="gall" class="on">Golden rules</button><button data-tab="gte" lang="te">తెలుగు గైడ్</button><button data-tab="gwork">Mestri &amp; workers</button><button data-tab="geng">Engineers</button><button data-tab="gbuild">Builders</button><button data-tab="gsup">Suppliers</button><button data-tab="gtime">Stripping time</button><button data-tab="gfix">Defects</button></div>
   <div class="disc" role="note"><span class="i">i</span><div><b>Disclaimer:</b> This guide is for general education. Stripping times, defect fixes and rules of thumb are indicative and depend on cement, weather, loading and design. They do <b>not</b> replace IS 456 or the instructions of your structural engineer or site engineer. Never remove props or formwork without engineer approval.</div></div>
@@ -581,7 +595,7 @@ document.querySelectorAll('#home input,#home select').forEach(el => el.addEventL
 async function bootstrap() {
   try { const b = await get('getBootstrap');
     (b.rates || []).forEach(r => { if (Number(r.base_rate) > 0) RATES[r.item_code] = {name:r.item_name, cat:r.category, unit:r.unit, baseRate:Number(r.base_rate)}; });
-    if (b.zones?.length) { fillSel('zoneSelect', b.zones.map(z => [z.zone_code, z.zone_name, Number(z.multiplier)]), 'ZONE2');
+    if (b.zones?.length) { zgSync(b.zones); fillSel('zoneSelect', b.zones.map(z => [z.zone_code, z.zone_name, Number(z.multiplier)]), 'ZONE2');
       $('f-post-zone').innerHTML = b.zones.map(z => `<option>${esc(z.zone_code)}</option>`).join(''); }
     if (b.projects?.length) fillSel('projectSelect', b.projects.map(p => [p.type_code, p.type_name, Number(p.multiplier)]), 'T1');
     (b.steel || []).forEach(s => { const el = $(s.key); if (el && s.value !== '') el.value = s.value; });
@@ -605,6 +619,32 @@ document.querySelectorAll('.tabs').forEach(bar => bar.addEventListener('click', 
 $('nav').addEventListener('click', e => { const b = e.target.closest('[data-p]'); if (b) location.hash = b.dataset.p; });
 document.addEventListener('click', e => { const g = e.target.closest('[data-go]'); if (!g) return; const [p, t] = g.dataset.go.split(':'); location.hash = p; show(p); tab(t); });
 window.addEventListener('hashchange', () => show(location.hash.slice(1)));
+
+/* ===== zone guide: real names + what each zone means ===== */
+const ZG = {ZONE1:{n:'North-West',a:'Kukatpally, KPHB, Miyapur, Jagathgirigutta, Bachupally'},ZONE2:{n:'North',a:'Kompally, Alwal, Medchal, Bowenpally'},
+  ZONE3:{n:'Central & East',a:'Secunderabad, Uppal, LB Nagar, Dilsukhnagar'},ZONE4:{n:'South-West',a:'Gachibowli, Hitech City, Kondapur, Shamshabad'}};
+function zgSync(rows) { rows.forEach(z => { const e = ZG[z.zone_code] = ZG[z.zone_code] || {};
+  if (z.areas) e.a = z.areas; if (z.zone_name && z.zone_name !== z.zone_code) e.n = z.zone_name; }); updZ(); }
+function zgHtml(code, m) {
+  const z = ZG[code]; if (!z) return code ? '<b>' + esc(code) + '</b>' : '';
+  let fx = ''; if (m != null) { const p = Math.round((m - 1) * 100);
+    fx = '<span class="fx">Rate effect: ' + (p === 0 ? 'base rate, no change' : (p > 0 ? '+' : '−') + Math.abs(p) + '% on labour, hire and consumables vs base') + ' (×' + m + '). Steel rate is not affected.</span>'; }
+  return '<b>' + esc(code) + ' = ' + esc(z.n || code) + '</b><br>Areas: ' + esc(z.a || '—') + fx + '<span class="fx">Not sure? Pick the zone nearest to your site. Final quotes may differ.</span>';
+}
+function updZ() {
+  const zs = $('zoneSelect'), pz = $('f-post-zone');
+  if (zs) $('zoneGuide').innerHTML = zgHtml(zs.value, mult('zoneSelect'));
+  if (pz && $('pzGuide')) $('pzGuide').innerHTML = zgHtml(pz.value, null);
+  document.querySelectorAll('.zkx').forEach(el => el.innerHTML = '<b>Zone guide</b><div class="zk">' +
+    Object.keys(ZG).map(c => '<span><b>' + esc(c) + '</b> = ' + esc(ZG[c].n || c) + ' — ' + esc(ZG[c].a || '') + '</span>').join('') + '</div><span class="fx">Type the zone codes you cover, e.g. ZONE1, ZONE2.</span>');
+}
+$('f-post-zone').closest('.f').insertAdjacentHTML('afterend', '<div class="zg" id="pzGuide"></div>');
+['f-mreg-zones', 'f-sreg-zones'].forEach(i => { const el = $(i); if (el) el.closest('.f').insertAdjacentHTML('beforeend', '<div class="zg zkx"></div>'); });
+$('zoneSelect').addEventListener('change', updZ); $('f-post-zone').addEventListener('change', updZ);
+$('resetBtn').addEventListener('click', () => setTimeout(updZ, 0));
+new MutationObserver(updZ).observe($('zoneSelect'), {childList: true});
+new MutationObserver(updZ).observe($('f-post-zone'), {childList: true});
+updZ();
 
 fillSel('zoneSelect', ZONES, 'ZONE2'); fillSel('projectSelect', PROJ, 'T1');
 show(location.hash.slice(1) || (window.__INIT||{}).p || 'home'); if(!location.hash && window.__INIT && window.__INIT.t) tab(window.__INIT.t); render(); bootstrap();
